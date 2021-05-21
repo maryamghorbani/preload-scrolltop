@@ -9,8 +9,23 @@ document.addEventListener('DOMContentLoaded', function () {
 const backToTop = document.getElementById('backToTop')
 
 backToTop.addEventListener('click', function () {
-    document.documentElement.scrollTop = 0;
+    scrollTop (0 , 1500);
 })
+
+function scrollTop (scroll , duration) {
+    let currentTime = duration;
+    let animate = () => {
+        if (currentTime <= 0) return;
+        setTimeout(() => {
+            currentTime -= 100;
+            console.log(currentTime);
+            animate()
+        },100)
+    }
+
+    animate()
+}
+
 window.addEventListener('scroll', function (e) {
     if (document.documentElement.scrollTop > 250) {
         backToTop.style.display = 'flex'
