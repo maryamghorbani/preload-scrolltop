@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const backToTop = document.getElementById('backToTop')
 
+backToTop.addEventListener('click', function () {
+    document.documentElement.scrollTop = 0;
+})
 window.addEventListener('scroll', function (e) {
     if (document.documentElement.scrollTop > 250) {
         backToTop.style.display = 'flex'
