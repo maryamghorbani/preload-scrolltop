@@ -13,14 +13,17 @@ backToTop.addEventListener('click', function () {
 })
 
 function scrollTop (scroll , duration) {
+    let doc = document.documentElement;
     let currentTime = duration;
+    let speed = 10;
+
     let animate = () => {
         if (currentTime <= 0) return;
         setTimeout(() => {
-            currentTime -= 100;
-            console.log(currentTime);
+            currentTime -= speed;
+            doc.scrollTop -= doc.scrollTop / (currentTime/speed)
             animate()
-        },100)
+        },speed)
     }
 
     animate()
